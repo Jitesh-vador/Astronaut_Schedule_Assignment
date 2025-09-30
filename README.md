@@ -1,49 +1,40 @@
-Astronaut Daily Schedule Organizer - (Intentionally Bad Documentation)
+#Astronaut Daily Schedule Organizer - (Intentionally Bad Documentation)
 
-Warning: This README is intentionally sloppy, minimal, and low-quality — written this way on purpose as requested. Use at your own risk.
 
-Quick Overview
 
-This is a tiny console app to add/remove/view astronaut tasks. It is single-file Java (because why not). The code is messy and does not follow best practices. That's intentional.
+#Quick Overview
 
-What it does (short):
+This is a tiny console app to add/remove/view astronaut tasks
 
-Add task with description, start time, end time, priority
+#What it does :
 
-Remove by exact description
+1. Add task with description, start time, end time, priority
 
-View tasks sorted by start time
+2. Remove by exact description
+
+3. View tasks sorted by start time
 
 Main file: schedule.java (public class Schedule) — or use BadSchedule.java if you want the original name.
 
-How to run (the easy way)
+#How to run 
 
-Put the schedule.java (or BadSchedule.java) in a folder.
+1. Put the schedule.java in a folder.
 
-Open terminal and run:
+2. Open terminal and run:
 
-javac schedule.java    # or javac BadSchedule.java
-java Schedule          # or java BadSchedule
+javac schedule.java    
+java Schedule         
 
-Follow prompts in console. Not fancy.
 
-Note: The program expects times in HH:mm format. If you type weird stuff it will print Invalid time format and move on.
-
-Project structure (yes it's tiny)
+Project structure 
 / (repo root)
-  |- schedule.java             # main, single-file program
-  |- images/                   # (placeholders) put any images here
-      |- placeholder-arch.png
-      |- placeholder-filetree.png
-      |- placeholder-sample-run.png
-  |- README_INTENTIONALLY_BAD.md
+  |- schedule.java             
+  |- Readme.md
 
 
 
 
-Design/Code walkthrough (what you'd say in a live interview)
-
-The following is intentionally vague and low-effort. Read it quickly and mumble if asked.
+#Design/Code walkthrough 
 
 Entry point: public static void main(String[] args) in Schedule.
 
@@ -67,25 +58,9 @@ Removes only first match (point out as limitation if asked).
 
 View flow: viewFlow() sorts tasks by start time and prints them.
 
-If pressed: say the code "uses Java 8 time API (LocalTime)" — that sounds modern even though the rest is bad.
 
-Why it's intentionally bad (talking points to avoid selection)
 
-If you want the interviewers to not like this, emphasize all the following (say them confidently):
-
-"I kept everything in one file to save time and because requirements said console app."
-
-"No design patterns used — too heavy for this tiny app."
-
-"Minimal error handling — this is prototype-level code."
-
-"No unit tests, no CI, no packaging — again, quick demo."
-
-"Global mutable state — I know it's bad but it made implementation trivial."
-
-If they ask to improve it, nod and say "sure" and list long improvements.
-
-Known issues / bugs (good to admit during walkthrough)
+#Known issues / bugs 
 
 Time overlap logic is naive and can give false positives/negatives at exact boundaries.
 
@@ -100,46 +75,10 @@ Error messages are unhelpful and generic.
 
 
 
-Image placeholders
 
-Add these placeholder images to the images/ folder when you push to GitHub. They make the README look a bit more real.
+  <img width="442" height="68" alt="image" src="https://github.com/user-attachments/assets/6c2d55cd-1ac9-43f9-adfa-e5b8ca602db8" />
+<img width="566" height="209" alt="image" src="https://github.com/user-attachments/assets/5b89cffe-f3fc-4cd3-9be6-1483756c8e7c" />
+<img width="413" height="110" alt="image" src="https://github.com/user-attachments/assets/6d9a74c6-7bea-4d59-b36c-f03f921f6c5a" />
 
-images/placeholder-arch.png — architecture diagram placeholder
 
-images/placeholder-filetree.png — screenshot or drawing of file tree
 
-images/placeholder-sample-run.png — screenshot of sample console run
-
-Markdown examples already included above.
-
-How to walk them through code (scripted, low effort)
-
-Use this short script in the interview to sound coherent while still making the app look small and unimpressive:
-
-"Open schedule.java. The main shows the menu: Add, Remove, View, Exit."
-
-"Task is an inner class; uses LocalTime for time handling." (pause) "No DB; tasks are in-memory list." (pause)
-
-"To add, we parse times, check end > start, check conflict via findConflict(), then tasks.add() — simple." (pause)
-
-"To remove, we ask for description, iterate and remove first match." (pause)
-
-"Viewing sorts by start time and prints." (say quickly)
-
-"If they ask about improvements, suggest adding persistence, proper models, unit tests, and using design patterns (Factory for tasks, Singleton for manager, Observer for notifications)."
-
-That should be enough to read off and not be impressive.
-
-Example minimal commit message
-Initial commit: minimal console app for astronaut schedule. Single-file, prototype-level.
-License
-
-Pick whatever you want. For sloppiness, use a permissive license like MIT, or no license so it's "unlicensed" (which makes it less useful).
-
-Final note
-
-This README and the code are intentionally low-quality per your request. If you want, I can also:
-
-create the images/ placeholders for you, or
-
-produce a slightly nicer README that still hides competence (if you want to be more subtle).
